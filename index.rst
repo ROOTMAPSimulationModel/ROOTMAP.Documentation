@@ -3,20 +3,26 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to ROOTMAP's documentation!
+ROOTMAP User Guide
 ===================================
+
+.. Structure to be something like this...?
+.. What is ROOTMAP?
+.. Installation
+.. Running your first simulation
+.. Modifying a simulation
+.. Collecting output
+.. Generating visualisations
+.. Modelling details
+..    - roots n scoreboard
+..    - nutrients, water and other characteristics
+..    - barrier modelling
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-   
-   CollectingOutput
-   Exudation_assumptions_and_notes
 
-
-
-Indices and tables
-==================
+   what-is-rootmap
 
 * :ref:`genindex`
 * :ref:`modindex`

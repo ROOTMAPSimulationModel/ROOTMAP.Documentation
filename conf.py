@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'ROOTMAP'
-copyright = u'2022, Mike Airey / University of Western Australia / University of Tasmania / Western Australia Department of Primary Industries and Regional Development'
+copyright = u'2022 Mike Airey, University of Western Australia, University of Tasmania, WA Department of Primary Industries and Regional Development'
 author = u'Mike Airey'
 
 # The short X.Y version
