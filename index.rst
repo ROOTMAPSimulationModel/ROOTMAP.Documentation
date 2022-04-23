@@ -28,3 +28,4 @@ ROOTMAP User Guide
    modifying-simulation
    collecting-output
    visualisation
+   modelling-details
