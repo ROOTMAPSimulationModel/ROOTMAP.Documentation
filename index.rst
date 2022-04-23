@@ -28,7 +28,3 @@ ROOTMAP User Guide
    modifying-simulation
    collecting-output
    visualisation
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
