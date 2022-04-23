@@ -23,6 +23,11 @@ ROOTMAP User Guide
    :caption: Contents:
 
    what-is-rootmap
+   installation
+   first-simulation
+   modifying-simulation
+   collecting-output
+   visualisation
 
 * :ref:`genindex`
 * :ref:`modindex`
