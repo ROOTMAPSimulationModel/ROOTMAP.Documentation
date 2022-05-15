@@ -8,7 +8,58 @@ Common types of data captured are numeric data, for mathematical calculations, a
 Numeric data that is spatial in nature, such as the number of root tips in each cell of the Scoreboard, will be written in a text file, broken into planes along the Y axis. The image to the left shows a section of an output file. The scoreboard being modelled is 8 cells wide (X), 8 cells deep (Y) and 20 cells down (Z). Each X-Z slice is printed with commas separating cells, line breaks separating Z layers and additional line breaks separating Y slices. This can be altered in the Output Rules.
 
 Raytracing data is written as a text file with an ``.inc`` suffix, in the format read by the free software raytracer `POV-Ray <https://www.povray.org/documentation/index-3.6.php>`_. See [TODO: the Raytracing section of] the :doc:`visualisation` page for further explanation of the .include files and setting up a 3D animation run.
-During the model run, when output files are being written to, the on-screen Progress window will show the caption “Output File Alarm”. Numeric output files will be written to the directory ``%AppData%\ROOTMAP\[current version number]``. Raytracing output files will be written to a subdirectory named ``Raytracing``.
+During the model run, when output files are being written to, the on-screen Progress window will show the caption “Output File Alarm”. Numeric output files will be written to the directory ``%AppData%\ROOTMAP\[current version number]``. Raytracing output files should be written to a subdirectory named ``Raytracer`` or ``Raytracing`` to keep them separate from numeric data files.
+
+**Configuration file guide**
+
+``OutputRules.xml`` follows the structure below:
+
+.. code-block:: xml
+
+  <?xml version="1.0" encoding="utf-8"?>
+
+  <rootmap
+          xmlns="https://example.org/ROOTMAP/OutputRulesSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="https://example.org/ROOTMAP/OutputRulesSchema https://rootmapstorageaccount.blob.core.windows.net/rootmap-schemata-container/OutputRules.xsd">
+
+    <initialisation>
+      <owner>DataOutputCoordinator</owner>
+      <!-- Output rules are defined here
+      <outputrule>...</outputrule>
+      -->
+    </initialisation>
+  </rootmap>
+
+with zero or more ``<outputrule>`` elements as children of the ``<initialisation>`` element. You can comment out an output rule element to temporarily turn that rule off.
+
+The behaviour of the ``<initialisation>`` and ``<owner>`` elements is as described in :doc:`modifying-simulation`. The ``<outputrule>`` element works as follows.
+
+.. code-block:: xml
+
+  <outputrule>
+    <source />
+    <type />
+    <stratum>Soil</stratum>
+    <filename/>
+    <specification1 />
+    <specification2 />
+    <reopen />
+    <when>
+      <count />
+      <initialtime> />
+      <interval />
+    </when>
+  </outputrule>
+
+*source*
+  foo
+*type*
+  bar
+*stratum*
+  Leave as "Soil". Soil is the only stratum supported for output.
+*filename*
+  If your output rule only fires once, a static filename is fine. Otherwise, you can define a template filename, using "printf"-style formatting codes to insert timestamp or output "frame" number. ROOTMAP pre-processes URL % formatted values before passing to strftime, eg. when using %20 for trailing spaces. (TODO more about this format)
 
 **Examples**
 
@@ -114,7 +165,9 @@ Here’s an output rule that collects non-spatial data, in this case, the nitrog
 
 If you make a mistake in ``OutputRules.xml``, for example misspelling Characteristic names or Plant names or not putting in the right time, the model will run fine and just not produce any output for the misconfigured rule.
 If output data is not being captured, check these three things first.
-    1. Check that you’ve exactly matched the real Characteristic name you meant to capture. This includes variations such as "Wrap None" or "Volume Object 1" where relevant. The full name acts as a single string and is processed as such.
-    2. Check the timing. Ensure the ``<when>`` element is set up to actually produce output during the simulation's runtime. For example, if it has an ``<interval>`` of 30 days and the simulation runs for 20 days, it'll never produce output. Note that the interval starts after the initial time and that one-time-outputs may need ``<interval>`` filled out. Your one output will happen ``<interval>`` after ``<initial>``; there is no ``<initial>`` output if ``<interval>`` is set to 0.
-    3. Make sure you have replaced all references to “Plant 120” or “Rootmap Plant” or any other name with whatever your simulation’s plant is called.
+
+1. Check that you’ve exactly matched the real Characteristic name you meant to capture. This includes variations such as "Wrap None" or "Volume Object 1" where relevant. The full name acts as a single string and is processed as such.
+2. Check the timing. Ensure the ``<when>`` element is set up to actually produce output during the simulation's runtime. For example, if it has an ``<interval>`` of 30 days and the simulation runs for 20 days, it'll never produce output. Note that the interval starts after the initial time and that one-time-outputs may need ``<interval>`` filled out. Your one output will happen ``<interval>`` after ``<initial>``; there is no ``<initial>`` output if ``<interval>`` is set to 0.
+3. Make sure you have replaced all references to “Plant 120” or “Rootmap Plant” or any other name with whatever your simulation’s plant is called.
+
 Note that there’s currently (at time of writing) a bug somewhere that means non-spatial data isn’t being recorded. (TODO verify and fix or clarify)
