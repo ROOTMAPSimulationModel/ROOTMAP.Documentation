@@ -70,3 +70,5 @@ UpgradeLog*.htm
 *.bak
 
 .ionide
+
+.~lock*
