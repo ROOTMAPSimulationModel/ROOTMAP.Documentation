@@ -2,4 +2,7 @@
   div.document, div.footer {
     width: 1120px;
   }
+  div.footer {
+    opacity: 50%;
+  }
 }

@@ -19,7 +19,8 @@ ROOTMAP User Guide
 ..    - barrier modelling
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+   :titlesonly:
    :caption: Contents:
 
    what-is-rootmap
