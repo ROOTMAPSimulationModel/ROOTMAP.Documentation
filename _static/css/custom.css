@@ -2,7 +2,21 @@
   div.document, div.footer {
     width: 1120px;
   }
-  div.footer {
-    opacity: 50%;
-  }
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  margin: 0 0 80px;
+}
+
+div.footer {
+  opacity: 50%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 80px;
 }

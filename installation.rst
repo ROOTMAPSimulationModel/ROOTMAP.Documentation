@@ -1,5 +1,5 @@
 Installation
-===================================
+============
 
 ROOTMAP is an application for Windows 10 and 11. Download the latest installer from `<https://rootmapstorageaccount.blob.core.windows.net/rootmap-installers-container/v5.0.8/InstallROOTMAP-v5.0.8.exe>`_.
 
@@ -17,7 +17,7 @@ Despite this, you may find that Windows SmartScreen attempts to block execution 
 
 
 Uninstallation
------------------------------------
+--------------
 
 To uninstall, locate ROOTMAP in the Windows "Apps and Features" interface (previously known as "Add and Remove Programs") and click Uninstall.
 You will be given the option to retain or delete the Configurations, Raytracing and Postprocessing directories in the ROOTMAP installation directory. This option defaults to "retain" to reduce the likelihood of accidental loss of data.

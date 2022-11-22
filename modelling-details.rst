@@ -1,5 +1,5 @@
 Modelling details
-===================================
+=================
 
 This section contains technical details of important aspects of the model.
 

@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 ROOTMAP User Guide
-===================================
+==================
 
 .. Structure to be something like this...?
 .. What is ROOTMAP?
