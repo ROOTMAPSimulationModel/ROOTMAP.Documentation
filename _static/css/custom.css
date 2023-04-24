@@ -13,6 +13,10 @@ body {
   margin: 0 0 80px;
 }
 
+div.document {
+  padding-bottom: 50px;
+}
+
 div.footer {
   opacity: 50%;
   position: absolute;

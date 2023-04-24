@@ -70,4 +70,4 @@ Re-running this or another simulation
 
 Once the simulation has run through, it can be closed using **Close Simulation** from the **File** menu. You can then re-run the same simulation by re-opening it, or run a new simulation by selecting a new set of configuration files (always by choosing the appropriate ``rootmap.xml`` file via **File** -> **Open Simulation...**).
 Some simulations are set to run identically each time, others will be affected by stochastic randomness and produce similar but non-identical results on subsequent runs.
-To develop your own configuration for a simulation run, please see the document “Setting Up A Simulation” (TODO update this link).
+To develop your own configuration for a simulation run, please see the document :doc:`modifying-simulation`.
